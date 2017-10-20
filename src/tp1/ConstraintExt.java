@@ -75,7 +75,7 @@ public class ConstraintExt extends Constraint{
 	 */
 	public boolean violation(Assignment a) {
 		if (a.getVars().containsAll(varList)) {
-			for (int i=0;i< tuples.size();i++){
+			for (int i=0;i<tuples.size();i++){
 				int j=0;
 				while (j < varList.size() && (tuples.get(i).get(j).equals(a.get(varList.get(j)))))
 				{

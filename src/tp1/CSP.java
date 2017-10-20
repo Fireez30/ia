@@ -87,12 +87,12 @@ public class CSP {
 	 * 
 	 */
 	public ArrayList<Assignment> searchAllSolutions(){
-		cptr=1;
+		//cptr=1;
 		solutions.clear(); // SI ON CHOISIT DE TRAVAILLER DIRECTEMENT SUR L'ATTRIBUT SOLUTIONS
-		// Implanter appel a backtrack
-		System.err.println("searchAllSolutions a finaliser : gerer l'appel a backtrackAll  !!");
 
-		System.out.println(cptr + " noeuds ont été explorés");
+		backtrackAll();
+		System.out.println("Nb solutions : " + solutions.size());
+		//System.out.println(cptr + " noeuds ont été explorés");
 		return solutions;
 	}
 
@@ -102,11 +102,17 @@ public class CSP {
 	 * 
 	 */
 	private void backtrackAll() {
-		// AJOUTER UN PARAMETRE DE TYPE ArrayList<Assignment> SI ON NE TRAVAILLE PAS DIRECTEMENT SUR L'ATTRIBUT solutions
-		// A IMPLANTER
-		// quelque part : cptr++;
-		System.err.println("backtrackAll a implanter !!");
-
+		if (assignment.size() == network.getVarNumber()){
+			Assignment a = assignment.clone();
+			solutions.add(a);
+		}
+		else {String x=chooseVar(assignment);
+		for(int i=0;i<tri(network.getDom(x)).size();i++){
+			assignment.put(x,network.getDom(x).get(i));
+			if (consistant(x)) {backtrackAll();}
+			assignment.remove(x);
+			}
+		}
 	}
 
 

@@ -9,7 +9,7 @@ public class Application {
 
 	public static void main(String[] args){
 		// TODO Auto-generated method stub
-		String fileName="tp1";
+		String fileName="zebre";
 		Network myNetwork = null;
 		try {
 			System.out.println("Chargement du fichier : "+new java.io.File("../").getCanonicalPath()+ "/" + fileName);
@@ -38,9 +38,9 @@ public class Application {
 		}
 		
 		System.out.println(myNetwork.toString());
-		
+
 		CSP test = new CSP(myNetwork);
-		test.searchSolution();
+		System.out.println(test.searchSolution());
 	}
 	
 		

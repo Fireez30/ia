@@ -83,6 +83,8 @@ public class Network {
 			String type = in.readLine().trim();					// le type de la contrainte 
 			if (type.equals("ext")) c = new ConstraintExt(in);
 			// else if(type.equals("AUTRE TYPE")) c = new ConstraintTYPE(in)
+			else if (type.equals("dif")) c = new ConstraintDif(in);
+			else if (type.equals("eq")) c = new ConstraintEq(in);
 			else {System.out.println(type);
 				System.err.println("Type contrainte inconnu");}
 				
@@ -209,7 +211,7 @@ public class Network {
 		return "Var et Dom : " + varDom + "\nConstraints :" + constraints;
 	}
 	
-	public static void main(String[] args){
+/*	public static void main(String[] args){
 		Network monCSP = new Network();
 		System.out.println("Exemple de creation d'un CSP bidon avec quelques erreurs de création \n");
 		// les variables
@@ -293,7 +295,7 @@ public class Network {
 		monCSP.addConstraint(c3);
 
 		System.out.println("\nMon réseau de contraintes (les entrees incorrectes ayant ete ignorees) :\n" + monCSP);
-	}
+	}*/
 	
 }
 
